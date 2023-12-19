@@ -1,0 +1,41 @@
+/* Global Styles */
+QWidget {
+    background-color: #333333; /* Темно-серый фон */
+    color: #ffffff; /* Белый текст */
+}
+
+QLabel {
+    font-size: 20px;
+    color: #3498db; /* Синий текст для меток */
+}
+
+QPushButton {
+    font-size: 18px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db; /* Синий фон для кнопок */
+    color: #ffffff;
+}
+
+QPushButton:hover {
+    background-color: #2980b9; /* Темнее синий для эффекта наведения */
+}
+
+QLineEdit {
+    font-size: 18px;
+    padding: 12px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    background-color: #2e2e2e; /* Темно-серый фон для полей ввода */
+    color: #ffffff;
+}
+
+/* Особые стили для главного окна и модулей */
+LoginModule {
+    background-color: #3498db; /* Синий фон для окна авторизации */
+}
+
+MainMenuModule {
+    background-color: #2ecc71; /* Зеленый фон для главного меню */
+}
