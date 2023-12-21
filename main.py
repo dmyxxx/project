@@ -7,6 +7,8 @@ from view_projects import ViewProjects
 from project_details import ProjectDetails
 from edit_project import EditProject
 from delete_project import DeleteProject
+from serviceselection import ServiceSelection
+from user_list import UserList
 import database
 
 class MainApp(QtWidgets.QApplication):
@@ -17,12 +19,12 @@ class MainApp(QtWidgets.QApplication):
         self.main_menu = MainMenu(self.db, self)
         self.create_project = CreateProject(self, self.db)
         self.view_projects = ViewProjects(self.db,self)
-
+        # self.user_list = UserList(self.db, self)
 
         self.login_screen.login_button.clicked.connect(self.switch_to_main_menu)
         self.main_menu.new_project_button.clicked.connect(self.switch_to_create_project)
         self.main_menu.view_projects_button.clicked.connect(self.switch_to_view_projects)
-
+        # self.main_menu.user_list_button.clicked.connect(self.switch_to_user_list)
         self.current_project_id = None
 
         self.init_ui()
@@ -68,6 +70,21 @@ class MainApp(QtWidgets.QApplication):
         self.view_projects.refresh_projects_list()
         self.view_projects.show()
 
+    def switch_to_service_selection(self):
+        self.main_menu.hide()
+        self.service_selection = ServiceSelection(self)
+        self.service_selection.show()
+
+    def switch_to_user_list(self):
+        self.main_menu.hide()
+        self.user_list = UserList(self.db, self)
+        self.user_list.show()
+
+    def try_switch_to_user_list(self):
+        try:
+            self.main_app.switch_to_user_list()
+        except Exception as e:
+            print(f'Произошла ошибка: {e}')
 
 
 def main():
